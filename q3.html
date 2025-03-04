@@ -1,0 +1,174 @@
+<html>
+<head>
+    <title>23BCE1128</title>
+
+    <style>
+        .enter:focus {
+            border: 4px red solid;
+        }
+    </style>
+
+    <script>
+        function displayTime() {
+            document.getElementById("timeDisplay").innerHTML = new Date().toLocaleTimeString();
+            setTimeout(displayTime, 1000);
+        }
+
+        function validateForm() {
+            let isValid = true;
+            let form = document.forms["myForm1"];
+            let name = form["name"].value;
+            let zip = form["zip"].value;
+            let phone = form["phone"].value;
+            let email = form["email"].value;
+            let password = form["password"].value;
+            let verifyPassword = form["verify_password"].value;
+            let pan = form["pan"].value;
+            let gender = document.querySelectorAll('input[name="gender"]:checked');
+            let preferences = document.querySelectorAll('input[name="preferences"]:checked');
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let passwordPattern = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&]).{6,8}$/;
+            let panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+
+            if (name === "" || name.length > 15) {
+                alert("Name is required and should not exceed 15 characters");
+                return false;
+            }
+            if (zip === "" || isNaN(Number(zip)) || zip.length > 6) {
+                alert("Zip Code should be numeric and not exceed 6 digits");
+                return false;
+            }
+            if (phone === "" || isNaN(Number(phone)) || phone.length !== 10) {
+                alert("Phone number should be numeric and exactly 10 digits");
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Invalid email format");
+                return false;
+            }
+            if (!passwordPattern.test(password)) {
+                alert("Password must be 6-8 characters, contain a number, a letter, and a special character");
+                return false;
+            }
+            if (password !== verifyPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+            if (!panPattern.test(pan)) {
+                alert("Invalid PAN number");
+                return false;
+            }
+
+            if (gender.length === 0) {
+                alert("Please select a gender.");
+                return false;
+            }
+            if (preferences.length === 0) {
+                alert("Please select at least one preference.");
+                return false;
+            }
+
+            return true; // Allow form submission if all validations pass
+        }
+    </script>
+</head>
+<body onload="displayTime()">
+
+    <form name="myForm1" onsubmit="return validateForm()">
+        <fieldset style="width: 800px;">
+            <table style="width: 100%;" cellspacing="5px">
+                <tr>
+                    <th style="text-align: left; font-size: 26px;" colspan="2">Test JavaScript Form Validation</th>
+                    <th style="width: 200px"></th>
+                    <th style="border: 2px black solid; padding-right: 2px; width: 200px;">
+                        <div style="text-align: center;">Time: <span id="timeDisplay"></span></div>
+                    </th>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>Name<span style="color: red;">*</span></td>
+                    <td><input type="text" name="name" required style="width: 100%;" class="enter"></td>
+                    <td style="padding-left: 14px; color: red;">Please enter your name!</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Address<span style="color: red;">*</span></td>
+                    <td><textarea name="address" style="width: 100%;"></textarea></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Zip Code<span style="color: red;">*</span></td>
+                    <td><input type="text" name="zip" style="width: 100%;"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Country<span style="color: red;">*</span></td>
+                    <td><select name="country" style="width:100%">
+                        <option>USA</option>
+                        <option>India</option>
+                        </select>   
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Gender<span style="color: red;">*</span></td>
+                    <td>
+                        <input type="radio" name="gender" value="Male">Male
+                        <input type="radio" name="gender" value="Female">Female
+                    </td>
+                    <td style="text-align: right;">PAN No:</td>
+                    <td><input type="text" name="pan"></td>
+                </tr>
+                <tr>
+                    <td>Preferences<span style="color: red;">*</span></td>
+                    <td>
+                        <input type="checkbox" name="preferences" value="Red">Red
+                        <input type="checkbox" name="preferences" value="Green">Green
+                        <input type="checkbox" name="preferences" value="Blue">Blue
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Phone<span style="color: red;">*</span></td>
+                    <td><input type="text" name="phone"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Email<span style="color: red;">*</span></td>
+                    <td><input type="text" name="email"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Password (8-15 characters)<span style="color: red;">*</span></td>
+                    <td><input type="password" name="password"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Verify Password<span style="color: red;">*</span></td>
+                    <td><input type="password" name="verify_password"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="SEND">
+                        <input type="reset" value="CLEAR">
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+</body>
+</html>

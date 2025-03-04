@@ -1,0 +1,19 @@
+.add-item
+{
+    border-radius: 30px;
+    background: lightblue;
+    font-size: 13px;
+    text-align: center;
+}
+
+.add-item:focus
+{
+    background: blue;
+    color: white;
+}
+
+.click-to-add
+{
+    border-radius: 30px;
+    
+}

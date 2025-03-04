@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+    <table style="width: 800px;">
+        <tr>
+            <th>Enter number of rows : </th>
+            <th><input type="number" value="0" id="rowcount"></th>
+            <th>Enter number of columns : </th>
+            <th><input type="number" value="0" id="columncount"></th>
+        </tr>
+
+    </table>
+    <button onclick="tablegenerate()" style="margin-top: 10px; width: 150px; border-radius: 30px;">Generate</button>
+    </p>
+
+    <table id="tablespace" cellpadding="8px"></table>
+
+    <button onclick="buttongen()">Create elements</button>
+    <p id="contain_add"></p>
+
+    <input type="text" class="add-item" id="add-item" placeholder="Item name">
+    <button class="click-to-add" onclick="additem()">Add item</button>
+
+    <ol id="orderedlist">
+    </ol>
+
+    <button class="click-to-add" onclick="addcount()">Count</button>
+    <input type="number" class="click-to-add" id="count" value="0">
+    <input type="text" class="click-to-add" id="see-here" value="0" onkeydown="addcount()">
+
+
+    <script src="ques1_commands.js"></script>
+</body>
+
+</html>

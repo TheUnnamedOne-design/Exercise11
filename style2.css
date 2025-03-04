@@ -1,0 +1,27 @@
+.timer .section-content .buttons-container .button
+{
+    border-radius: 30px;
+    font-size: 20px;
+    padding: 5px 20px;
+}
+
+.timer .section-content .buttons-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.timer .section-content .timer-display
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+    font-size: 46px;
+    padding: 40px 40px;
+    color: red;
+
+}
